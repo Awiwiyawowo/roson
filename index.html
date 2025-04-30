@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Rosa Pixel Art</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .pixel-rose {
+      width: 128px;
+      height: 128px;
+      image-rendering: pixelated;
+      transition: transform 1s ease;
+    }
+
+    .bloomed {
+      transform: scale(1.5) rotate(360deg);
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: red;
+      font-size: 28px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" onclick="bloomRose()">
+    <img src="rosa.png" alt="Pixel Rose" class="pixel-rose" id="rose">
+    <div class="message" id="message">chinga tu madre</div>
+  </div>
+
+  <script>
+    function bloomRose() {
+      const rose = document.getElementById('rose');
+      const message = document.getElementById('message');
+      rose.classList.add('bloomed');
+      message.classList.add('show');
+    }
+  </script>
+</body>
+</html>
